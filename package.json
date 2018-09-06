@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/juriejan/development-server/issues"
   },
-  "homepage": "https://github.com/juriejan/development-server#readme"
+  "homepage": "https://github.com/juriejan/development-server#readme",
+  "devDependencies": {
+    "eslint": "^5.5.0"
+  }
 }
