@@ -7,6 +7,9 @@
 ### Tools
 
 - [Editor Config](https://editorconfig.org/)
+- [Node Version Manager](https://github.com/creationix/nvm)
+- [Node.js](https://nodejs.org/)
+
 
 ### Recommended IDE Packages (Atom)
 
