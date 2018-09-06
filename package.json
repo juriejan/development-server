@@ -1,0 +1,19 @@
+{
+  "name": "development-server",
+  "version": "0.0.0",
+  "description": "Development Server",
+  "engines": {
+    "node": "10.9.0",
+    "npm": "6.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juriejan/development-server.git"
+  },
+  "author": "Jurie-Jan Botha <juriejanbotha@gmail.com>",
+  "license": "Copyright (c) 2018, Jurie-Jan Botha",
+  "bugs": {
+    "url": "https://github.com/juriejan/development-server/issues"
+  },
+  "homepage": "https://github.com/juriejan/development-server#readme"
+}
