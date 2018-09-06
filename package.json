@@ -1,6 +1,6 @@
 {
   "name": "development-server",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Development Server",
   "engines": {
     "node": "10.9.0",
@@ -18,5 +18,11 @@
   "homepage": "https://github.com/juriejan/development-server#readme",
   "devDependencies": {
     "eslint": "^5.5.0"
+  },
+  "dependencies": {
+    "koa": "^2.5.2",
+    "koa-livereload": "^0.2.0",
+    "koa-send": "^5.0.0",
+    "livereload": "^0.7.0"
   }
 }
