@@ -14,7 +14,7 @@ class Server {
 		this.root = root
 	}
 
-	listen(port) {
+	listen() {
 		// Setup and start static server
 	  let app = new Koa()
 	  // Attach the livereload script
