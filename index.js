@@ -26,12 +26,17 @@ class Server {
 	    await koaSend(ctx, path, {root: this.root})
 	  })
 	  // Start the server
-	  app.listen(this.port)
+	  this.appServer = app.listen(this.port)
 	  // Setup and start livereload server
-	  let livereloadServer = livereload.createServer()
-	  livereloadServer.watch(this.root)
+	  this.livereloadServer = livereload.createServer()
+	  this.livereloadServer.watch(this.root)
 	  // Log success
 	  this.log.info(`Server listening at localhost:${this.port}`)
+	}
+
+	close() {
+		this.appServer.close()
+		this.livereloadServer.close()
 	}
 
 }
