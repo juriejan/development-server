@@ -5,6 +5,7 @@ const livereload = require('livereload')
 
 const Koa = require('koa')
 
+const PATHS = ['components', 'data', 'fonts', 'styles']
 
 class Server {
 
@@ -20,10 +21,12 @@ class Server {
 	  // Attach the livereload script
 	  app.use(koaLivereload())
 	  // Serve directories marked to pass and rewrite rest to index
-	  app.use(async (ctx) => {
-	    let path = ctx.path
-	    path = (path === '/' ? '/index.html' : path)
-	    await koaSend(ctx, path, {root: this.root})
+	  app.use(async (context) => {
+	    let path = context.path
+			let initial = path.split('/').slice(1)[0]
+			path = PATHS.includes(initial) ? path : '/index.html'
+	    // path = (path === '/' ? '/index.html' : path)
+	    await koaSend(context, path, {root: this.root})
 	  })
 	  // Start the server
 	  this.appServer = app.listen(this.port)
