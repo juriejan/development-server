@@ -5,14 +5,13 @@ const livereload = require('livereload')
 
 const Koa = require('koa')
 
-const PATHS = ['components', 'data', 'fonts', 'styles']
-
 class Server {
 
-	constructor(log, root) {
+	constructor(log, root, paths) {
 		this.log = log
 		this.port = 3000
 		this.root = root
+		this.paths = paths
 	}
 
 	listen() {
@@ -24,7 +23,7 @@ class Server {
 	  app.use(async (context) => {
 	    let path = context.path
 			let initial = path.split('/').slice(1)[0]
-			path = PATHS.includes(initial) ? path : '/index.html'
+			path = this.paths.includes(initial) ? path : '/index.html'
 	    // path = (path === '/' ? '/index.html' : path)
 	    await koaSend(context, path, {root: this.root})
 	  })
