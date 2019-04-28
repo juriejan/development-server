@@ -1,6 +1,6 @@
 
 const fs = require('fs')
-const https = require('https')
+const http = require('http')
 
 const koaLivereload = require('koa-livereload')
 const koaSend = require('koa-send')
@@ -31,21 +31,13 @@ class Server {
 	    await koaSend(context, path, {root: this.root})
 	  })
 	  // Start the server
-	  this.appServer = https.createServer({
-			key: fs.readFileSync('localhost.key'),
-			cert: fs.readFileSync('localhost.crt')
-		}, app.callback())
+	  this.appServer = http.createServer(app.callback())
 		this.appServer.listen(this.port)
 	  // Setup and start livereload server
-	  this.livereloadServer = livereload.createServer({
-			https: {
-				key: fs.readFileSync('localhost.key'),
-				cert: fs.readFileSync('localhost.crt')
-			}
-		})
+	  this.livereloadServer = livereload.createServer()
 	  this.livereloadServer.watch(this.root)
 	  // Log success
-	  this.log.info(`Server listening at https://localhost:${this.port}`)
+	  this.log.info(`Server listening at http://localhost:${this.port}`)
 	}
 
 	close() {
@@ -54,6 +46,5 @@ class Server {
 	}
 
 }
-
 
 module.exports = Server
